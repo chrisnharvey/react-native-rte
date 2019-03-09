@@ -1,0 +1,31 @@
+{
+  "name": "react-native-rte",
+  "version": "1.0.0",
+  "description": "Rich Text Editor for React Native (based on Quill.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/skygard/react-native-rte.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-native-component",
+    "quill",
+    "ios",
+    "android",
+    "rich-text",
+    "text",
+    "rich",
+    "editor",
+    "wysiwyg"
+  ],
+  "author": "Skygard",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://gitlab.com/skygard/react-native-rte/issues"
+  },
+  "homepage": "https://gitlab.com/skygard/react-native-rte#readme"
+}
