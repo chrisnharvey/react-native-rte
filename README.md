@@ -6,7 +6,7 @@ Compatible with iOS and Android.
 
 ## Example
 
-```
+```jsx
 import React, { Component } from 'react';
 import { SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { RichText, Bold, Italic, OrderedList, UnorderedList, Link, Media } from 'react-native-rte'
