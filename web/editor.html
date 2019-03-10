@@ -42,7 +42,13 @@
   var message = function (event) {
     var payload = JSON.parse(event.data)
     
-    return quill[payload.method].apply(quill, payload.args)
+    var response = quill[payload.method].apply(quill, payload.args)
+
+    postMessage({
+      type: 'response',
+      messageId: payload.messageId,
+      payload: response
+    })
   }
 
   document.addEventListener("message", message , false);

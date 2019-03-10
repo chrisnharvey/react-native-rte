@@ -4,7 +4,8 @@ import {WebView} from 'react-native-webview'
 
 export default class EditorWebViewProxy extends Component {
   state = {
-    listeners: []
+    listeners: [],
+    messages: {}
   }
   render() {
     return (
@@ -31,12 +32,27 @@ export default class EditorWebViewProxy extends Component {
   }
 
   trigger(method, ...args) {
+    let messageId = Math.random().toString(36).substr(2, 9)
+
     let payload = JSON.stringify({
+      messageId,
       method,
       args
     })
 
+    promise = new Promise((resolve, reject) => {
+      let messages = this.state.messages
+
+      messages[messageId] = {resolve, reject}
+
+      this.setState({
+        messages
+      })
+    })
+
     this.webView.postMessage(payload)
+
+    return promise
   }
 
   addListener(handler) {
@@ -50,6 +66,12 @@ export default class EditorWebViewProxy extends Component {
 
   onMessage(event) {
     const message = JSON.parse(event.nativeEvent.data)
+
+    if (message.type == 'response' && this.state.messages[message.messageId] !== undefined) {
+      let {resolve, reject} = this.state.messages[message.messageId]
+
+      resolve(message.payload)
+    }
 
     this.state.listeners.map((handler) => {
         handler(message)
