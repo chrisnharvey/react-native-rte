@@ -3,7 +3,7 @@ image: node:latest
 stages:
   - test
 
-eslint:
+test:
   stage: test
 
   before_script:
