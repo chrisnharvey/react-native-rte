@@ -37,7 +37,37 @@
 
   var postMessage = function(data){
     window.ReactNativeWebView.postMessage(JSON.stringify(data));
-  };
+  }
+
+  var message = function (event) {
+    var payload = JSON.parse(event.data)
+    
+    return quill[payload.method].apply(quill, payload.args)
+  }
+
+  document.addEventListener("message", message , false);
+  window.addEventListener("message", message , false);
+
+  quill.on('text-change', function(...args) {
+    postMessage({
+      event: 'text-change',
+      payload: args
+    })
+  })
+
+  quill.on('selection-change', function(...args) {
+    postMessage({
+      event: 'selection-change',
+      payload: args
+    })
+  })
+
+  quill.on('editor-change', function(...args) {
+    postMessage({
+      event: 'editor-change',
+      payload: args
+    })
+  })
 </script>
 </body>
 </html>
