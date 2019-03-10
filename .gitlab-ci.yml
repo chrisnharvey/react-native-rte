@@ -1,0 +1,13 @@
+image: node:latest
+
+stages:
+  - test
+
+eslint:
+  stage: test
+
+  before_script:
+    - npm install
+
+  script:
+    - npm run test
