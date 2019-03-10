@@ -4,6 +4,20 @@ A rich text editor for React Native based on Quill.js.
 
 Compatible with iOS and Android.
 
+## Installation
+
+Install React Native Rich Text Editor using npm:
+
+```
+npm install react-native-rte --save
+```
+
+Link react-native-webview:
+
+```
+react-native link react-native-webview
+```
+
 ## Example
 
 ```jsx
