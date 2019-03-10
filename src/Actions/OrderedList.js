@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image } from 'react-native'
-import { EditorWebView } from '../Editor'
+import { EditorProxy } from '../Editor'
 
 export default class OrderedList extends Component {
+  componentDidMount() {
+    EditorProxy.current.addListener(this.editorEvent.bind(this))
+  }
+
   render() {
     return (
       <TouchableOpacity
@@ -16,11 +20,10 @@ export default class OrderedList extends Component {
     )
   }
 
-  formatChanged() {
-
+  editorEvent(payload) {
   }
 
   onPress() {
-    alert('ordered list pressed')
+    EditorProxy.current.trigger('format', 'list', 'ordered')
   }
 }
