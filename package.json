@@ -1,6 +1,6 @@
 {
   "name": "react-native-rte",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Rich Text Editor for React Native (based on Quill.js)",
   "main": "index.js",
   "scripts": {
