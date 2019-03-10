@@ -77,4 +77,40 @@ export default class EditorWebViewProxy extends Component {
         handler(message)
     })
   }
+
+  getContents() {
+    return this.trigger('getContents')
+  }
+
+  getLength() {
+    return this.trigger('getLength')
+  }
+
+  getText() {
+    return this.trigger('getText')
+  }
+
+  getBounds() {
+    return this.trigger('getBounds')
+  }
+
+  getSelection() {
+    return this.trigger('getSelection')
+  }
+
+  getLeaf() {
+    return this.trigger('getLeaf')
+  }
+
+  getLine() {
+    return this.trigger('getLine')
+  }
+
+  getLines() {
+    return this.trigger('getLines')
+  }
+
+  getFormat() {
+    return this.trigger('getFormat')
+  }
 }
