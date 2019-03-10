@@ -46,6 +46,8 @@ export default class UnorderedList extends Component {
   }
 
   onPress() {
-    EditorProxy.current.trigger('format', 'list', 'bullet')
+    EditorProxy.current.trigger('format', 'list', this.active ? false : 'bullet')
+
+    this.triggerUpdate()
   }
 }

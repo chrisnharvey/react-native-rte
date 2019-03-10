@@ -46,6 +46,8 @@ export default class Italic extends Component {
   }
 
   onPress() {
-    EditorProxy.current.trigger('format', 'italic', true)
+    EditorProxy.current.trigger('format', 'italic', !this.state.active)
+
+    this.triggerUpdate()
   }
 }

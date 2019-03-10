@@ -48,5 +48,6 @@ export default class Bold extends Component {
   onPress() {
     EditorProxy.current.trigger('format', 'bold', !this.state.active)
 
+    this.triggerUpdate()
   }
 }

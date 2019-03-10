@@ -46,6 +46,8 @@ export default class OrderedList extends Component {
   }
 
   onPress() {
-    EditorProxy.current.trigger('format', 'list', 'ordered')
+    EditorProxy.current.trigger('format', 'list', this.active ? false : 'ordered')
+
+    this.triggerUpdate()
   }
 }
