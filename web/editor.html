@@ -36,6 +36,9 @@
   });
 
   var postMessage = function(data){
+    if (window.ReactNativeWebView === undefined) {
+      return
+    }
     window.ReactNativeWebView.postMessage(JSON.stringify(data));
   }
 
