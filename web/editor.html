@@ -1001,7 +1001,7 @@
     modules: {
       toolbar: false
     }
-  });
+  })
 
   var postMessage = function(data){
     if (window.ReactNativeWebView === undefined) {
@@ -1025,10 +1025,27 @@
   document.addEventListener("message", message , false);
   window.addEventListener("message", message , false);
 
-  quill.on('text-change', function(...args) {
+  var timer
+
+  quill.on('text-change', function(delta, ...args) {
+    clearTimeout(timer)
+
+    if (delta.ops[delta.ops.length - 1].insert == "\n") {
+      // Hack to stop weirdness in with iOS keyboard
+      timer = setTimeout(function() {
+        quill.blur()
+        quill.focus()
+      }, 200)
+    }
+
+    
+
     postMessage({
       event: 'text-change',
-      payload: args
+      payload: {
+        delta,
+        ...args
+      }
     })
   })
 
