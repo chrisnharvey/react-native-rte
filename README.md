@@ -26,12 +26,14 @@ import { SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { RichText, Bold, Italic, OrderedList, UnorderedList, Link, Media } from 'react-native-rte'
 
 export default class App extends Component {
-  selectMedia() {
-    // Base64 Data
-    return 'data:image/jpeg;base64,BASE64DATA'
+  selectMedia(editor) {
+    editor.getSelection().then(function(payload) {
+      // Base64 Data
+      editor.trigger('insertEmbed', payload ? payload.index : 0, 'image', 'data:image/jpeg;base64,BASE64DATA')
 
-    // Or an image URL
-    return 'http://example.com/image.jpg'
+      // Or an image URL
+      editor.trigger('insertEmbed', payload ? payload.index : 0, 'image', 'http://example.com/image.jpg')
+    })
   }
 
   render() {
