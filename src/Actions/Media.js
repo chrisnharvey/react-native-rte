@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image } from 'react-native'
-import { EditorWebView } from '../Editor'
+import { EditorProxy } from '../Editor'
 
 export default class Media extends Component {
   render() {
@@ -16,11 +16,7 @@ export default class Media extends Component {
     )
   }
 
-  formatChanged() {
-
-  }
-
   onPress() {
-    alert('media pressed')
+    this.props.onPress(EditorProxy.current)
   }
 }
