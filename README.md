@@ -26,6 +26,14 @@ import { SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { RichText, Bold, Italic, OrderedList, UnorderedList, Link, Media } from 'react-native-rte'
 
 export default class App extends Component {
+  selectMedia() {
+    // Base64 Data
+    return 'data:image/jpeg;base64,BASE64DATA'
+
+    // Or an image URL
+    return 'http://example.com/image.jpg'
+  }
+
   render() {
     return (
       <SafeAreaView style={{flex:1, backgroundColor: '#fff'}}>
@@ -38,7 +46,7 @@ export default class App extends Component {
               <OrderedList />
               <UnorderedList />
               <Link />
-              <Media />
+              <Media onPress={this.selectMedia.bind(this)} />
             </RichText.Toolbar>
           </RichText>
         </KeyboardAvoidingView>
