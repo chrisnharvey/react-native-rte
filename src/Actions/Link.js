@@ -16,11 +16,7 @@ export default class Link extends Component {
     )
   }
 
-  formatChanged() {
-
-  }
-
   onPress() {
-    alert('link pressed')
+    this.props.onPress(EditorProxy.current)
   }
 }
