@@ -26,7 +26,16 @@ import { SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { RichText, Bold, Italic, OrderedList, UnorderedList, Link, Media } from 'react-native-rte'
 
 export default class App extends Component {
+
+  addLink(editor) {
+    // Logic for opening a modal for URL entry here.....
+
+    editor.trigger('format', 'link', 'https://example.com')
+  }
+
   selectMedia(editor) {
+    // Logic for opening an image selector here
+
     editor.getSelection().then(function(payload) {
       // Base64 Data
       editor.trigger('insertEmbed', payload ? payload.index : 0, 'image', 'data:image/jpeg;base64,BASE64DATA')
@@ -47,7 +56,7 @@ export default class App extends Component {
               <Italic />
               <OrderedList />
               <UnorderedList />
-              <Link />
+              <Link onPress=(this.addLink.bind(this)} />
               <Media onPress={this.selectMedia.bind(this)} />
             </RichText.Toolbar>
           </RichText>
