@@ -3,7 +3,7 @@ import {FlatList, Image, StyleSheet, TouchableOpacity, View} from 'react-native'
 
 export default class Toolbar extends Component {
   render() {
-    return (
+    return this.props.hidden ? null : (
       <View
           style={[{height: 50, backgroundColor: '#D3D3D3', alignItems: 'center'}, this.props.style]}
       >
