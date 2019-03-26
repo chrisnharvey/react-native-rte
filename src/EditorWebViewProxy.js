@@ -78,6 +78,10 @@ export default class EditorWebViewProxy extends Component {
     })
   }
 
+  hasFocus() {
+    return this.trigger('hasFocus')
+  }
+
   getContents() {
     return this.trigger('getContents')
   }
