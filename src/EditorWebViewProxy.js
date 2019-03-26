@@ -78,6 +78,18 @@ export default class EditorWebViewProxy extends Component {
     })
   }
 
+  blur() {
+    return this.trigger('blur')
+  }
+
+  enable(enable = true) {
+    return this.trigger('enable', enable)
+  }
+
+  disable() {
+    return this.enable(false)
+  }
+
   hasFocus() {
     return this.trigger('hasFocus')
   }
