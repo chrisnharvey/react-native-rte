@@ -56,7 +56,7 @@ export default class App extends Component {
               <Italic />
               <OrderedList />
               <UnorderedList />
-              <Link onPress=(this.addLink.bind(this)} />
+              <Link onPress={this.addLink.bind(this)} />
               <Media onPress={this.selectMedia.bind(this)} />
             </RichText.Toolbar>
           </RichText>
